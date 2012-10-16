@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'gunicorn',
     'flags',
+    'jingo',
     # Admin enabled
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
