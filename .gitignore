@@ -1,4 +1,6 @@
 *.log
 *.pot
 *.pyc
+chromenv/
+.DS_Store
 local_settings.py
