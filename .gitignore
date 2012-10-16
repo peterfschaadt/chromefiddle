@@ -1,6 +1,6 @@
 *.log
 *.pot
 *.pyc
-chromenv/
+venv/
 .DS_Store
 local_settings.py
