@@ -19,3 +19,6 @@ class Flag(models.Model):
 	# Print name of flag
 	def __unicode__(self):
 		return self.name
+
+	def __str__(self):
+		return str(self.name)
