@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from flags import views
 
 # Admin enabled
 from django.contrib import admin
@@ -14,4 +15,6 @@ urlpatterns = patterns('',
 
     # Admin enabled
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^$', views.home, name='home'),
 )
