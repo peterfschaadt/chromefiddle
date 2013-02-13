@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>{{ TITLE }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="A site to track experimental settings for Google Chrome's browser">
+    <meta name="author" content="Peter Schaadt">
 
     <!-- Styles -->
     <link href="/static/css/bootstrap.css" rel="stylesheet">
@@ -49,24 +49,20 @@
           <a href="#" class="brand">ChromeFiddle</a>
           <div class="btn-group pull-right">
             <a href="#" data-toggle="dropdown" class="btn dropdown-toggle">
-              <i class="icon-user"></i> Operating System
+              <i class="icon-user"></i> Username
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#">Mac</a></li>
+              <li><a href="#">Profile</a></li>
               <li class="divider"></li>
-              <li><a href="#">Windows</a></li>
-              <li><a href="#">Linux</a></li>
-              <li><a href="#">Chrome OS</a></li>
-              <li><a href="#">Android</a></li>
+              <li><a href="#">Sign Out</a></li>
             </ul>
           </div>
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="/list">List</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -78,31 +74,32 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Operating System</li>
-              <li class="active"><a href="#">Mac</a></li>
-              <li><a href="#">Windows</a></li>
-              <li><a href="#">Linux</a></li>
-              <li><a href="#">Chrome OS</a></li>
-              <li><a href="#">Android</a></li>
-              <li class="nav-header">Type</li>
-              <li><a href="#">Stable</a></li>
-              <li><a href="#">Experimental</a></li>
-              <li><a href="#">Cutting-Edge</a></li>
+              <li class="nav-header">Sidebar</li>
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="nav-header">Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="nav-header">Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-            <h1>Experiment with Google Chrome</h1>
-            <p>Navigate to "chrome://flags" in your Google Chrome URL bar to view cutting-edge features that haven't made it into the latest release yet.</p>
-            <p>We have detected that you are running <strong>Chrome 24.0.1312.57 on Mac OS.</strong></p>
-            <p><a class="btn btn-primary btn-medium">Learn more »</a></p>
+            <h1>Hello, world!</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a class="btn btn-primary btn-large">Learn more »</a></p>
           </div>
           <div class="row-fluid">
-            <div class="span12 well well-large">
-              <p>Tab Overview</p>
-              <p>Swipe down with three fingers on your trackpad to see an overview of all your tabs. Click on a thumbnail to select it. Works great in fullscreen mode.</p>
-            </div>
             <div class="span4">
               <h2>Heading</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -142,14 +139,11 @@
       <hr>
 
       <footer>
-        <p>&copy; ChromeFiddle 2013 | 
-          <a href="/about">About</a> | 
-          <a href="/contact">Contact</a> | 
-          <a href="/privacy">Privacy</a>
-        </p>
+        <p>&copy; Chromefiddle 2013</p>
       </footer>
 
     </div>
+    {% endblock %}
 
     <!--======= Javascript =======-->
     <!-- Placed at the end of the document so the pages load faster -->
