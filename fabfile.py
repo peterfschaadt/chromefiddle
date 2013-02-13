@@ -138,6 +138,14 @@ def collect_static():
 		with _virtualenv():
 			sudo('python manage.py collectstatic --settings=prod_settings', pty=True)
 
+def test():
+    """
+    Run test suite
+    """
+    with cd(env.code_dir):
+        with _virtualenv():
+            local('python manage.py test', fail='abort')
+
 def dump_db_json():
 	"""
 	Dump backup of database to JSON
