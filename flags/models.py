@@ -4,12 +4,13 @@ from django.db import models
 class Flag(models.Model):
 	name = models.CharField(max_length=100)
 	description = models.CharField(max_length=300)
-	# Supported OS's for experimental flag
+	# Supported OS's for experimental flags
 	OS_COMPATABILITY = (
 		('Mac', 'Mac'),
 		('Windows', 'Windows'),
 		('Linux', 'Linux'),
 		('Chrome OS', 'Chrome OS'),
+        ('Android', 'Android')
 	)
 	compatability = models.CharField(max_length=10, choices=OS_COMPATABILITY)
 	# Timestamps
