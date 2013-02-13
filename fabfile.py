@@ -2,8 +2,13 @@ from fabric.api import cd, env, prefix, run, sudo, local, settings
 from contextlib import contextmanager
 
 __author__ = 'Peter Schaadt'
+__repository__ = 'https://github.com/peterfschaadt/chromefiddle.git'
 
+# User/host
 env.user = 'chromefiddle'
+env.host = ['198.144.185.175']
+
+# Paths
 env.root_dir = '/web'
 env.virtualenv '%s/chromefiddle/env' % env.root_dir
 env.activate = 'source %s/bin/activate' % env.virtualenv
@@ -14,17 +19,20 @@ def setup():
 	"""
 	Initial configuration
 	"""
+	# Update/upgrade
 	sudo('apt-get update')
 	sudo('apt-get upgrade')
+	# Install python tools
 	sudo('apt-get install -y python-setuptools')
 	sudo('easy_install pip')
 	sudo('pip install virtualenv')
+	# Install Git
 	sudo('apt-get install git-core')
 	# Install Nginx
 	sudo('apt-get install python-software-properties')
 	sudo('add-apt-repository ppa:nginx/development')
 	sudo('apt-get install nginx')
-
+	# Reset permissions
 	reset_permissions()
 
 @contextmanager
@@ -51,6 +59,9 @@ def remove_pyc_files():
 			sudo('find . -name "*.pyc" -exec rm {} \;')
 
 def restart_gunicorn_nginx():
+	"""
+	Restart Gunicorn and Nginx servers
+	"""
 	restart_gunicorn()
 	restart_nginx()
 
@@ -88,6 +99,21 @@ def restart_nginx():
 	"""
 	sudo('etc/init.d/nginx restart')
 
+def update_project():
+	with cd(env.code_dir):
+		with _virtualenv():
+			run('git pull')
+			install_requirements()
+			perform_migration():
+			collect_static()
+
+def deploy():
+	"""
+	Deploy Django project
+	"""
+	update_project()
+	restart_gunicorn_nginx()
+
 def install_requirements():
 	"""
 	Install pip dependencies from freeze files
@@ -105,16 +131,25 @@ def perform_migration():
 			sudo('python manage.py migrate --settings=prod_settings', pty=True)
 
 def collect_static():
+	"""
+	Collect static files
+	"""
 	with cd(env.code_dir):
 		with _virtualenv():
 			sudo('python manage.py collectstatic --settings=prod_settings', pty=True)
 
 def dump_db_json():
+	"""
+	Dump backup of database to JSON
+	"""
 	with cd(env.code_dir):
 		with _virtualenv():
 			sudo('python manage.py dumpdata > data/data.chromefiddle.json', pty=True)
 
 def reset_permissions():
+	"""
+	Reset user permissions
+	"""
 	sudo('chown %s -R %s'% (env.user,env.root_dir))
     sudo('chgrp %s -R %s'% (env.user,env.root_dir))
 
