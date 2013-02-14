@@ -10,7 +10,7 @@ env.host = ['198.144.185.175']
 
 # Paths
 env.root_dir = '/web'
-env.virtualenv '%s/chromefiddle/env' % env.root_dir
+env.virtualenv = '%s/chromefiddle/env' % env.root_dir
 env.activate = 'source %s/bin/activate' % env.virtualenv
 env.code_dir = '%s/chromefiddle' % env.root_dir
 env.static_dir = '%s/src' % env.root_dir
@@ -71,8 +71,8 @@ def start_gunicorn():
 	"""
 	with cd(env.code_dir):
 			with _virtualenv():
-				sudo(gunicorn_django -c gunicorn.py 
-					--daemon prod_settings.py & sleep 3)
+				sudo('gunicorn_django -c gunicorn.py '
+                     '--daemon prod_settings.py & sleep 3')
 
 def restart_gunicorn():
 	"""
@@ -85,7 +85,7 @@ def restart_gunicorn():
 			if not pid.succeeded:
 				start_gunicorn()
 			else:
-				sudo('kill -HUP %s' pid)
+				sudo('kill -HUP %s' % pid)
 
 def start_nginx():
 	"""
@@ -104,7 +104,7 @@ def update_project():
 		with _virtualenv():
 			run('git pull')
 			install_requirements()
-			perform_migration():
+			perform_migration()
 			collect_static()
 
 def deploy():
@@ -154,12 +154,14 @@ def dump_db_json():
 		with _virtualenv():
 			sudo('python manage.py dumpdata > data/data.chromefiddle.json', pty=True)
 
+
 def reset_permissions():
-	"""
-	Reset user permissions
-	"""
-	sudo('chown %s -R %s'% (env.user,env.root_dir))
-    sudo('chgrp %s -R %s'% (env.user,env.root_dir))
+    """
+    Reset user permissions
+    """
+    sudo('chown %s -R %s' % (env.user, env.root_dir))
+    sudo('chgrp %s -R %s' % (env.user, env.root_dir))
+
 
 def find_todo():
 	"""
