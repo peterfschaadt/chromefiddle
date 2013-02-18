@@ -20,10 +20,12 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # App-specific URLs
-    url(r'^flags/', include(flags.urls)),
+    # url(r'^$', 'flags.views.home'),
+    url(r'^$', include(flags.urls)),
+    # url(r'^flags/', include(flags.urls)),
 
     # Admin enabled
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'.*', redirect_to, {'url': '/flags/home'}),
+    # url(r'.*', redirect_to, {'url': '/flags/home'}),
 )
