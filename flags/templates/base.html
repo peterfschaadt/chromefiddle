@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ TITLE }}</title>
+    <title>{% block title %}Template Title{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A site to track experimental settings for Google Chrome's browser">
     <meta name="author" content="Peter Schaadt">
@@ -53,12 +53,12 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#">Mac</a></li>
+              <li><a href="/mac">Mac</a></li>
               <li class="divider"></li>
-              <li><a href="#">Windows</a></li>
-              <li><a href="#">Linux</a></li>
-              <li><a href="#">Chrome OS</a></li>
-              <li><a href="#">Android</a></li>
+              <li><a href="/windows">Windows</a></li>
+              <li><a href="/linux">Linux</a></li>
+              <li><a href="/chrome-os">Chrome OS</a></li>
+              <li><a href="/android">Android</a></li>
             </ul>
           </div>
           <div class="nav-collapse">
@@ -74,10 +74,12 @@
     </div>
 
     <div class="container-fluid">
-      
+      {% block content %}
+        <h1>This is the base template.</h1>
+      {% endblock content %}  
 
+      <!--footer-->
       <hr>
-
       <footer>
         <p>&copy; ChromeFiddle 2013 | 
           <a href="/about">About</a> | 
@@ -85,8 +87,9 @@
           <a href="/privacy">Privacy</a>
         </p>
       </footer>
+      <!--/footer-->
 
-    </div>
+    </div><!--/container-fluid-->
 
     <!--======= Javascript =======-->
     <!-- Placed at the end of the document so the pages load faster -->
