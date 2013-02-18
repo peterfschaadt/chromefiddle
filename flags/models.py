@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Chrome experimental flag
 class Flag(models.Model):
 	name = models.CharField(max_length=100)

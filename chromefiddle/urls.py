@@ -10,6 +10,7 @@ admin.autodiscover()
 # Import URLs from apps
 import flags.urls
 
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'chromefiddle.views.home', name='home'),

@@ -15,6 +15,7 @@ env.activate = 'source %s/bin/activate' % env.virtualenv
 env.code_dir = '%s/chromefiddle' % env.root_dir
 env.static_dir = '%s/src' % env.root_dir
 
+
 def setup():
 	"""
 	Initial configuration
