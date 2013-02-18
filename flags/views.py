@@ -6,6 +6,9 @@ logger = getLogger('app')
 
 
 def home(request):
+    """
+    View for Home page.
+    """
     # Pull user agent string from web request
     user_agent = request.META['HTTP_USER_AGENT']
     logger.info('USER AGENT STRING: %s' % user_agent)
@@ -15,7 +18,7 @@ def home(request):
     # test_user_info = {'flavor': {'version': 'X 10.8.2', 'name': 'MacOS'}, 'os': {'name': 'Macintosh'}, 'browser': {'version': '24.0.1312.57', 'name': 'Chrome'}}
 
     # Check for operating system type
-    operating_system = user_info['os']['name'].lowercase
+    operating_system = user_info['os']['name'].lower()
     if operating_system == 'macintosh':
         os = 'Mac OS X'
     elif operating_system == 'windows':
@@ -27,7 +30,16 @@ def home(request):
     elif operating_system == 'android':
         os = 'Android'
 
-    # Build object with OS Name, Browser Name, and Browser Version
-    user_stats = {'os': os, 'browser': user_info['browser']}
+    return render(request, 'home.html', {'os': os, 'browser': user_info['browser']})
 
-    return render(request, 'home.html', {})
+def about(request):
+    """
+    View for About page.
+    """
+    return render(request, 'about.html', {})
+
+def privacy(request):
+    """
+    View for Privacy page.
+    """
+    return render(request, 'privacy.html', {})

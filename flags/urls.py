@@ -5,4 +5,5 @@ from django.core.urlresolvers import reverse
 urlpatterns = patterns('',
     url(r'^$', 'flags.views.home'),
     url(r'^home', 'flags.views.home'),
+    url(r'^about', 'flags.views.about'),
 )
