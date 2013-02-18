@@ -1,6 +1,12 @@
-Django==1.4.1
+Django==1.4.
+Fabric==1.5.3
+Jinja2==2.6
 distribute==0.6.27
 dj-database-url==0.2.1
-psycopg2==2.4.5
-wsgiref==0.1.2
 gunicorn==0.14.6
+jingo==0.4
+jinja-bootstrap==0.3.0
+paramiko==1.9.0
+psycopg2==2.4.5
+pycrypto==2.6
+wsgiref==0.1.2
