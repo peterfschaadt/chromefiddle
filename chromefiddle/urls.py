@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     # App-specific URLs
     # url(r'^$', 'flags.views.home'),
     url(r'^$', include(flags.urls)),
+    # Original:
     # url(r'^flags/', include(flags.urls)),
 
     # Admin enabled

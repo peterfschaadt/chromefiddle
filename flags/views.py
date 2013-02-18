@@ -29,14 +29,18 @@ def home(request):
         os = 'Chrome OS'
     elif operating_system == 'android':
         os = 'Android'
+    else:
+        os = 'an unfamiliar OS'
 
     return render(request, 'home.html', {'os': os, 'browser': user_info['browser']})
+
 
 def about(request):
     """
     View for About page.
     """
     return render(request, 'about.html', {})
+
 
 def privacy(request):
     """
