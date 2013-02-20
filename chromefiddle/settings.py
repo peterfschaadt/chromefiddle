@@ -14,15 +14,17 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://localhost')}
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-    #     'NAME': '',                      # Or path to database file if using sqlite3.
-    #     'USER': '',                      # Not used with sqlite3.
-    #     'PASSWORD': '',                  # Not used with sqlite3.
-    #     'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-    #     'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    # }
+    # Local development database
+    # 'default': dj_database_url.config(default='postgres://localhost')}
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/Users/peter/Dropbox/Dev/Databases/chromefiddle-dev.db', # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -87,7 +89,7 @@ SECRET_KEY = '0f-yxcd_d%ars2b)jw!dfaonmexn(1_^rmzui^x-+n+wk9ot7='
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'jingo.Loader',
+    # 'jingo.Loader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
@@ -123,11 +125,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'gunicorn',
     'flags',
-    'jingo',
+    'south',
+    # 'jingo',
     # Admin enabled
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging
