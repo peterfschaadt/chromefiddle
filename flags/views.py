@@ -44,14 +44,13 @@ def list(request):
     all_flags = Flag.objects.all()
     flag_count = all_flags.count()
     logger.info('TOTAL FLAGS: %d' % flag_count)
-    return render(request, 'list.html', {'flag_count': 'flag_count'})
+    return render(request, 'list.html', {'all_flags': all_flags})
 
 
 def about(request):
     """
     View for About page.
     """
-    # return render(request, 'about.html', {})
     return direct_to_template(request, 'about.html', {})
 
 
@@ -59,4 +58,4 @@ def privacy(request):
     """
     View for Privacy page.
     """
-    return render(request, 'privacy.html', {})
+    return direct_to_template(request, 'privacy.html', {})

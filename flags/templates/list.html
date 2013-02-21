@@ -3,17 +3,13 @@
 
 {% block content %}
 
-    <div class="row-fluid">
-        <div class="span12 well well-large">
-            <p>About ChromeFiddle</p>
-            <p>ChromeFiddle was started as a personal project by Peter Schaadt.</p>
-        </div>
-    </div><!--/row-->
-    <div class="row-fluid">
-        <div class="span9 well well-large">
-            <p>Tab Overview</p>
-            <p>Swipe down with three fingers on your trackpad to see an overview of all your tabs. Click on a thumbnail to select it. Works great in fullscreen mode.</p>
-        </div>
-    </div><!--/row-->
+    {% for flag in all_flags %}
+        <div class="row-fluid">
+            <div class="span9 well well-large">
+                <p>{{ flag.name }}</p>
+                <p>{{ flag.description }}</p>
+            </div>
+        </div><!--/row-->
+    {%  endfor %}
 
 {% endblock %}
