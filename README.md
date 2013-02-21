@@ -49,7 +49,7 @@ $ python manage.py migrate flags
 ## Fabric
 
 + **setup** = apt-get update/upgrade, install Python tools, Git, and Nginx, reset_permissions
-+ _virtualenv** = activate virtual environment
++ **_virtualenv** = activate virtual environment
 + **create_virtualenv** = creates virtual environment
 + **remove_pyc_files** = remove compiled Python files
 + **restart_gunicorn_nginx** = restart Gunicorn and Nginx servers
