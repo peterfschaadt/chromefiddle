@@ -5,8 +5,6 @@ import os
 
 __author__ = 'Peter Schaadt'
 
-TEMPLATE_DEBUG = DEBUG
-
 ADMINS = (
     ('Peter Schaadt', 'peter.schaadt@gmail.com'),
 )

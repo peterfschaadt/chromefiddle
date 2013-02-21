@@ -12,6 +12,7 @@ __author__ = 'Peter Schaadt'
 
 # Disable debug mode to turn off detailed error pages
 DEBUG = False
+TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
     # PostgreSQL production database

@@ -12,6 +12,7 @@ __author__ = 'Peter Schaadt'
 
 # Enable debug mode to turn on detailed error pages
 DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 # SQLite3 development database
 DATABASES = {
