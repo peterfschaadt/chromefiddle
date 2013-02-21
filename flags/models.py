@@ -1,20 +1,6 @@
 from django.db import models
 
 
-class Platforms(models.Model):
-    """
-    Supported operating systems.
-    """
-    OS_SUPPORT = (
-        ('Mac OS X', 'Mac OS X'),
-        ('Windows', 'Windows'),
-        ('Linux', 'Linux'),
-        ('Chrome OS', 'Chrome OS'),
-        ('Android', 'Android')
-    )
-    support = models.CharField(max_length=15, choices=OS_SUPPORT)
-
-
 class Flag(models.Model):
     """
     Chrome experimental flag.
@@ -22,8 +8,12 @@ class Flag(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
 
-    # Operating system support
-    compatibility = models.ManyToManyField(Platforms)
+    # Operating system compatibility
+    is_mac = models.BooleanField()
+    is_windows = models.BooleanField()
+    is_linux = models.BooleanField()
+    is_chrome_os = models.BooleanField()
+    is_android = models.BooleanField()
 
     # Timestamps
     date_added = models.DateTimeField(auto_now_add=True)
