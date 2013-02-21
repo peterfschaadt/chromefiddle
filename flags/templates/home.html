@@ -26,24 +26,15 @@
           <p>We have detected that you are running <strong>{{ browser.name }} {{ browser.version }}</strong> on <strong>{{ os }}</strong>.</p>
           <p><a class="btn btn-primary btn-medium">Learn more »</a></p>
         </div>
-        <div class="row-fluid">
-          <div class="span12 well well-large">
-            <p>Tab Overview</p>
-            <p>Swipe down with three fingers on your trackpad to see an overview of all your tabs. Click on a thumbnail to select it. Works great in fullscreen mode.</p>
-          </div>
-        </div><!--/row-->
-        <div class="row-fluid">
-          <div class="span12 well well-large">
-            <p>Tab Overview</p>
-            <p>Swipe down with three fingers on your trackpad to see an overview of all your tabs. Click on a thumbnail to select it. Works great in fullscreen mode.</p>
-          </div>
-        </div><!--/row-->
-        <div class="row-fluid">
-          <div class="span12 well well-large">
-            <p>Tab Overview</p>
-            <p>Swipe down with three fingers on your trackpad to see an overview of all your tabs. Click on a thumbnail to select it. Works great in fullscreen mode.</p>
-          </div>
-        </div><!--/row-->
+        {% for flag in supported_flags %}
+            <div class="row-fluid">
+              <div class="span12 well well-large">
+                  <p><i class="icon-flag"></i>&nbsp;<strong>{{ flag.name }}</strong></p>
+                  <p>{{ flag.description }}</p>
+              </div>
+            </div><!--/row-->
+        {% endfor %}
+
         <div class="row-fluid">
           <div class="span4">
             <h2>Heading</h2>

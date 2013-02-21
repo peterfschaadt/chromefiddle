@@ -6,10 +6,10 @@
     {% for flag in all_flags %}
         <div class="row-fluid">
             <div class="span9 well well-large">
-                <p>{{ flag.name }}</p>
+                <p><i class="icon-flag"></i>&nbsp;<strong>{{ flag.name }}</strong></p>
                 <p>{{ flag.description }}</p>
             </div>
         </div><!--/row-->
-    {%  endfor %}
+    {% endfor %}
 
 {% endblock %}
