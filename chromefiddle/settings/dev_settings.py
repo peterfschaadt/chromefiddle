@@ -6,6 +6,8 @@ except ImportError:
 
 ### Settings for Development environment ###
 
+# export DJANGO_SETTINGS_MODULE=chromefiddle.settings.dev_settings
+
 __author__ = 'Peter Schaadt'
 
 # Enable debug mode to turn on detailed error pages

@@ -6,6 +6,8 @@ except ImportError:
 
 ### Settings for Production environment ###
 
+# export DJANGO_SETTINGS_MODULE=chromefiddle.settings.prod_settings
+
 __author__ = 'Peter Schaadt'
 
 # Disable debug mode to turn off detailed error pages
