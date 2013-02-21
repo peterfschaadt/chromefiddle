@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.generic.simple import direct_to_template
 import httpagentparser
+from flags.models import Flag
 from django.utils.log import getLogger
 logger = getLogger('app')
 
@@ -35,11 +37,22 @@ def home(request):
     return render(request, 'home.html', {'os': os, 'browser': user_info['browser']})
 
 
+def list(request):
+    """
+    View for page listing all flags.
+    """
+    all_flags = Flag.objects.all()
+    flag_count = all_flags.count()
+    logger.info('TOTAL FLAGS: %d' % flag_count)
+    return render(request, 'list.html', {'flag_count': 'flag_count'})
+
+
 def about(request):
     """
     View for About page.
     """
-    return render(request, 'about.html', {})
+    # return render(request, 'about.html', {})
+    return direct_to_template(request, 'about.html', {})
 
 
 def privacy(request):
