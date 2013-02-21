@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ os }} Flags{% endblock %}
+
+{% block content %}
+
+    {% for flag in os_flags %}
+        <div class="row-fluid">
+            <div class="span9 well well-large">
+                <p><i class="icon-flag"></i>&nbsp;<strong>{{ flag.name }}</strong></p>
+                <p>{{ flag.description }}</p>
+            </div>
+        </div><!--/row-->
+    {% endfor %}
+
+{% endblock %}

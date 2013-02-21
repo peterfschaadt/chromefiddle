@@ -27,6 +27,11 @@ urlpatterns = patterns('',
     url(r'^home', 'flags.views.home'),
     url(r'^about', 'flags.views.about'),
     url(r'^list', 'flags.views.list'),
+    url(r'^mac', 'flags.views.mac'),
+    url(r'^windows', 'flags.views.windows'),
+    url(r'^linux', 'flags.views.linux'),
+    url(r'^chrome-os', 'flags.views.chrome_os'),
+    url(r'^android', 'flags.views.android'),
 
     # url(r'.*', redirect_to, {'url': '/home'}),
 )
