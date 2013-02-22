@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     # url(r'^flags/', include('chromefiddle.flags.urls')),
 
     # Admin documentation enabled
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin-only/doc/', include('django.contrib.admindocs.urls')),
 
     # Admin enabled
     url(r'^admin-only/', include(admin.site.urls)),
