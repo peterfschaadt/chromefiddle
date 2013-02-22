@@ -4784,15 +4784,15 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inverse .navbar-inner {
-  background-color: #007fff;
-  background-image: -moz-linear-gradient(top, #007fff, #007fff);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#007fff), to(#007fff));
-  background-image: -webkit-linear-gradient(top, #007fff, #007fff);
-  background-image: -o-linear-gradient(top, #007fff, #007fff);
-  background-image: linear-gradient(to bottom, #007fff, #007fff);
+  background-color: #363636;
+  background-image: -moz-linear-gradient(top, #363636, #363636);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#363636), to(#363636));
+  background-image: -webkit-linear-gradient(top, #363636, #363636);
+  background-image: -o-linear-gradient(top, #363636, #363636);
+  background-image: linear-gradient(to bottom, #363636, #363636);
   background-repeat: repeat-x;
   border-color: transparent;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff007fff', endColorstr='#ff007fff', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff363636', endColorstr='#ff363636', GradientType=0);
 }
 
 .navbar-inverse .brand,
@@ -6111,7 +6111,7 @@ a.badge:focus {
 }
 
 .hero-unit {
-  padding: 60px;
+  padding: 30px;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;
@@ -6125,7 +6125,7 @@ a.badge:focus {
 
 .hero-unit h1 {
   margin-bottom: 0;
-  font-size: 60px;
+  font-size: 48px;
   line-height: 1;
   letter-spacing: -1px;
   color: inherit;
@@ -6641,8 +6641,8 @@ legend {
 }
 
 .label {
-  min-width: 80px;
-  min-height: 80px;
+/*  min-width: 80px;
+  min-height: 80px;*/
   font-weight: 300;
   text-shadow: none;
   -webkit-border-radius: 0;
@@ -6664,6 +6664,27 @@ legend {
 
 .label-inverse {
   background-color: #000000;
+}
+
+/* Custom labels for operating systems */
+.label-mac-os-x {
+  background-color: #999999;
+}
+
+.label-windows {
+  background-color: #3a87ad;
+}
+
+.label-linux {
+  background-color: #f89406;
+}
+
+.label-chrome-os {
+  background-color: #cd5555;
+}
+
+.label-android {
+  background-color: #a4c739;
 }
 
 .badge {

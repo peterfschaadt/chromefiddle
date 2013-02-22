@@ -8,25 +8,31 @@ from django.contrib import admin
 admin.autodiscover()
 
 # Import URLs from apps
-import flags.urls
+# import flags.urls
 
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'chromefiddle.views.home', name='home'),
-    # url(r'^chromefiddle/', include('chromefiddle.foo.urls')),
+    # url(r'^flags/', include('chromefiddle.flags.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
+    # Admin documentation enabled
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # App-specific URLs
-    # url(r'^$', 'flags.views.home'),
-    url(r'^$', include(flags.urls)),
-    # Original:
-    # url(r'^flags/', include(flags.urls)),
-
     # Admin enabled
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin-only/', include(admin.site.urls)),
 
-    # url(r'.*', redirect_to, {'url': '/flags/home'}),
+    # App-specific URLs
+    url(r'^$', 'flags.views.home'),
+    url(r'^home', 'flags.views.home'),
+    url(r'^list', 'flags.views.list'),
+    url(r'^info', 'flags.views.info'),
+    url(r'^about', 'flags.views.about'),
+    url(r'^mac', 'flags.views.mac'),
+    url(r'^windows', 'flags.views.windows'),
+    url(r'^linux', 'flags.views.linux'),
+    url(r'^chrome-os', 'flags.views.chrome_os'),
+    url(r'^android', 'flags.views.android'),
+
+    # url(r'.*', redirect_to, {'url': '/home'}),
 )
