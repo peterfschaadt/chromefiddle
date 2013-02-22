@@ -99,6 +99,13 @@ def android(request):
     return render(request, 'os.html', {'os': os, 'os_flags': android_flags})
 
 
+def info(request):
+    """
+    View for Info page.
+    """
+    return direct_to_template(request, 'info.html', {})
+
+
 def about(request):
     """
     View for About page.
