@@ -6,7 +6,25 @@
     {% for flag in all_flags %}
         <div class="row-fluid">
             <div class="span9 well well-large">
-                <p><i class="icon-flag"></i>&nbsp;<strong>{{ flag.name }}</strong></p>
+                <p>
+                    <i class="icon-flag"></i>&nbsp;<strong>{{ flag.name }}&nbsp;</strong>
+                    {# Add compatible operating system labels #}
+                    {% if flag.is_mac %}
+                        <a href="/mac"><span class="label label-mac-os-x">Mac OS X</span></a>
+                    {% endif %}
+                    {% if flag.is_windows %}
+                        <a href="/windows"><span class="label label-windows">Windows</span></a>
+                    {% endif %}
+                    {% if flag.is_linux %}
+                        <a href="/linux"><span class="label label-linux">Linux</span></a>
+                    {% endif %}
+                    {% if flag.is_chrome_os %}
+                        <a href="/chrome-os"><span class="label label-chrome-os">Chrome OS</span></a>
+                    {% endif %}
+                    {% if flag.is_android %}
+                        <a href="/mac"><span class="label label-android">Android</span></a>
+                    {% endif %}
+                </p>
                 <p>{{ flag.description }}</p>
             </div>
         </div><!--/row-->
