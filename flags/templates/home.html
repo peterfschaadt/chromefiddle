@@ -3,55 +3,39 @@
 
 {% block content %}
     <div class="row-fluid">
-      <div class="span3">
-        <div class="well sidebar-nav">
-          <ul class="nav nav-list">
-            <li class="nav-header">Operating System</li>
-            <li class="active"><a href="/mac">Mac</a></li>
-            <li><a href="/windows">Windows</a></li>
-            <li><a href="/linux">Linux</a></li>
-            <li><a href="/chrome-os">Chrome OS</a></li>
-            <li><a href="/android">Android</a></li>
-            <li class="nav-header">Type</li>
-            <li><a href="#">Stable</a></li>
-            <li><a href="#">Experimental</a></li>
-            <li><a href="#">Cutting-Edge</a></li>
-          </ul>
-        </div><!--/.well -->
-      </div><!--/span-->
-      <div class="span9">
-        <div class="hero-unit">
-          <h1>Experiment with Google Chrome</h1>
-          <p>Navigate to <a href="chrome://flags" target="_blank">chrome://flags</a> in your Google Chrome URL bar to view cutting-edge features that haven't made it into the latest release yet.</p>
-          <p>We have detected that you are running <strong>{{ browser.name }} {{ browser.version }}</strong> on <strong>{{ os }}</strong>.</p>
-          <p><a class="btn btn-primary btn-medium" href="/info">Learn more »</a></p>
-        </div>
-        {% for flag in supported_flags %}
-            <div class="row-fluid">
-              <div class="span12 well well-large">
-                  <p><i class="icon-flag"></i>&nbsp;<strong>{{ flag.name }}</strong></p>
-                  <p>{{ flag.description }}</p>
-              </div>
-            </div><!--/row-->
-        {% endfor %}
+        <div class="span3">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Operating System</li>
+                    <li class="active"><a href="/mac">Mac</a></li>
+                    <li><a href="/windows">Windows</a></li>
+                    <li><a href="/linux">Linux</a></li>
+                    <li><a href="/chrome-os">Chrome OS</a></li>
+                    <li><a href="/android">Android</a></li>
+                    <li class="nav-header">Type</li>
+                    <li><a href="#">Stable</a></li>
+                    <li><a href="#">Experimental</a></li>
+                    <li><a href="#">Cutting-Edge</a></li>
+                </ul>
+            </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+            <div class="hero-unit">
+                <h1>Experiment with Google Chrome</h1>
+                <p>Navigate to <a href="chrome://flags" target="_blank">chrome://flags</a> in your Google Chrome URL bar to view cutting-edge features that haven't made it into the latest release yet.</p>
+                <p>We have detected that you are running <strong>{{ browser.name }} {{ browser.version }}</strong> on <strong>{{ os }}</strong>.</p>
+                <p><a class="btn btn-primary btn-medium" href="/info">Learn more »</a></p>
+            </div>
 
-        <div class="row-fluid">
-          <div class="span4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a href="#" class="btn">View details »</a></p>
-          </div><!--/span-->
-          <div class="span4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a href="#" class="btn">View details »</a></p>
-          </div><!--/span-->
-          <div class="span4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a href="#" class="btn">View details »</a></p>
-          </div><!--/span-->
-        </div><!--/row-->
-      </div><!--/span-->
+            {% for flag in supported_flags %}
+                <div class="row-fluid">
+                    <div class="span12 well well-large">
+                        <p><i class="icon-flag"></i>&nbsp;<strong>{{ flag.name }}</strong></p>
+                        <p>{{ flag.description }}</p>
+                    </div>
+                </div><!--/row-->
+            {% endfor %}
+
+        </div><!--/span-->
     </div><!--/row-->
 {% endblock %}
