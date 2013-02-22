@@ -7,9 +7,6 @@ import settings
 from django.contrib import admin
 admin.autodiscover()
 
-# Import URLs from apps
-# import flags.urls
-
 
 urlpatterns = patterns('',
     # Examples:
