@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic.simple import redirect_to
+from django.views.generic.simple import direct_to_template
 from flags import views
 import settings
 
@@ -15,9 +16,12 @@ urlpatterns = patterns('',
 
     # Admin documentation enabled
     url(r'^admin-only/doc/', include('django.contrib.admindocs.urls')),
-
-    # Admin enabled
+    # Admin section enabled
     url(r'^admin-only/', include(admin.site.urls)),
+
+    # Include robots.txt for search engine crawlers
+    url(r'^robots\.txt$', direct_to_template, {'template':
+        'robots.txt', 'mimetype': 'text/plain'}),
 
     # App-specific URLs
     url(r'^$', 'flags.views.home'),
