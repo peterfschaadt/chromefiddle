@@ -6111,7 +6111,7 @@ a.badge:focus {
 }
 
 .hero-unit {
-  padding: 60px;
+  padding: 30px;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;
@@ -6125,7 +6125,7 @@ a.badge:focus {
 
 .hero-unit h1 {
   margin-bottom: 0;
-  font-size: 60px;
+  font-size: 48px;
   line-height: 1;
   letter-spacing: -1px;
   color: inherit;
@@ -6641,8 +6641,8 @@ legend {
 }
 
 .label {
-  min-width: 80px;
-  min-height: 80px;
+/*  min-width: 80px;
+  min-height: 80px;*/
   font-weight: 300;
   text-shadow: none;
   -webkit-border-radius: 0;
@@ -6664,6 +6664,27 @@ legend {
 
 .label-inverse {
   background-color: #000000;
+}
+
+/* Custom labels for operating systems */
+.label-mac-os-x {
+  background-color: #999999;
+}
+
+.label-windows {
+  background-color: #3a87ad;
+}
+
+.label-linux {
+  background-color: #f89406;
+}
+
+.label-chrome-os {
+  background-color: #cd5555;
+}
+
+.label-android {
+  background-color: #a4c739;
 }
 
 .badge {
