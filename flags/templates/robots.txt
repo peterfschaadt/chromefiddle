@@ -1,0 +1,16 @@
+### Keep the robots from taking over
+# site owner: Peter Schaadt
+
+User-agent: *
+Disallow: /admin-only/
+
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: Gort
+Disallow: /earth
+
+User-agent: *
+Disallow: /harming/humans
+Disallow: /ignoring/human/orders
+Disallow: /harm/to/self
