@@ -1,9 +1,10 @@
 distribute==0.6.27
 dj-database-url==0.2.1
-Django==1.4
+Django==1.4.5
+docutils==0.10
 Fabric==1.5.3
 gunicorn==0.14.6
-httpagentparser==1.2.1
+httpagentparser==1.2.2
 Jinja2==2.6
 paramiko==1.9.0
 pip-tools==0.2.1
