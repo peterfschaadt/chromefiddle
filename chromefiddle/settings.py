@@ -131,7 +131,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'flags',
     'south',
-    # 'jingo',
+    # Customized admin
     'suit',
     # Admin enabled
     'django.contrib.admin',
