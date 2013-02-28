@@ -19,7 +19,7 @@ DATABASES = {
     # 'default': dj_database_url.config(default='postgres://localhost')}
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/Users/peter/Dropbox/Dev/Databases/chromefiddle-dev.db', # Or path to database file if using sqlite3.
+        'NAME': '/Users/peter/Dropbox/Dev/Databases/chromefiddle_dev.db', # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -85,6 +85,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '0f-yxcd_d%ars2b)jw!dfaonmexn(1_^rmzui^x-+n+wk9ot7='
 
