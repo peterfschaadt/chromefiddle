@@ -1,5 +1,6 @@
 try:
     from common_settings import *
+    from local_settings import *
 except ImportError:
     pass
 
@@ -18,13 +19,17 @@ TEMPLATE_DEBUG = DEBUG
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/Users/peter/Dropbox/Dev/Databases/chromefiddle-dev.db',  # Or path to database file if using sqlite3.
+        'NAME': '/Users/peter/Dropbox/Dev/Databases/chromefiddle_dev.db',  # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+
+# Import secret key from local_settings
+# local_settings is not tracked by Git
+SECRET_KEY = DEV_SECRET_KEY
 
 # Development apps
 # INSTALLED_APPS += ('debug-toolbar,')

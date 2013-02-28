@@ -1,5 +1,6 @@
 try:
     from common_settings import *
+    from local_settings import *
 except ImportError:
     pass
 
@@ -14,17 +15,10 @@ __author__ = 'Peter Schaadt'
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-DATABASES = {
-    # PostgreSQL production database
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'chromefiddle-prod',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+# Import database credentials and secret key from local_settings
+# local_settings is not tracked by Git
+DATABASES = PROD_DB
+SECRET_KEY = PROD_SECRET_KEY
 
 # Production apps
 # INSTALLED_APPS += (',')
