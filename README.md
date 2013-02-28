@@ -46,6 +46,11 @@ Apply schema migration
 $ python manage.py migrate flags
 ```
 
+Collect static files to static directory
+```
+$ python manage.py collectstatic
+```
+
 ## Fabric
 
 + **setup** = apt-get update/upgrade, install Python tools, Git, and Nginx, reset_permissions

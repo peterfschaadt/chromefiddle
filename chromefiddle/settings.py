@@ -1,6 +1,7 @@
 # Django settings for ChromeFiddle project
 import os
 import dj_database_url
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 __author__ = 'Peter Schaadt'
 
@@ -76,23 +77,26 @@ STATICFILES_DIRS = (
     os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'src'),
 )
 
+
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '0f-yxcd_d%ars2b)jw!dfaonmexn(1_^rmzui^x-+n+wk9ot7='
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    # 'jingo.Loader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    # 'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -126,12 +130,29 @@ INSTALLED_APPS = (
     'gunicorn',
     'flags',
     'south',
-    # 'jingo',
+    # Customized admin
+    'suit',
     # Admin enabled
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
 )
+
+SUIT_CONFIG = {
+    # Admin page header
+    'ADMIN_NAME': 'Administrators Only!',
+    # Form options
+    'SHOW_REQUIRED_ASTERISK': True,
+    'CONFIRM_UNSAVED_CHANGES': True,
+    # Sidebar menu icons
+    'MENU_ICONS': {
+        'auth': 'icon-lock',
+        'flags': 'icon-flag',
+        'sites': 'icon-folder-open'
+    },
+    # Pagination
+    'LIST_PER_PAGE': 50,
+}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

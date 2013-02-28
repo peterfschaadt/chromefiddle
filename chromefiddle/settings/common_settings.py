@@ -1,4 +1,6 @@
 import os
+# import dj_batabase_url
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 
 ### Shared Django settings for ChromeFiddle project ###
@@ -41,24 +43,6 @@ MEDIA_ROOT = ''
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = ''
 
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
-
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
-
-# Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'src'),
-)
-
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -77,6 +61,10 @@ TEMPLATE_LOADERS = (
     # 'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -92,12 +80,6 @@ ROOT_URLCONF = 'chromefiddle.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'chromefiddle.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -108,11 +90,29 @@ INSTALLED_APPS = (
     'gunicorn',
     'flags',
     'south',
+    # Customized admin
+    'suit',
     # Admin enabled
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
 )
+
+SUIT_CONFIG = {
+    # Admin page header
+    'ADMIN_NAME': 'Administrators Only!',
+    # Form options
+    'SHOW_REQUIRED_ASTERISK': True,
+    'CONFIRM_UNSAVED_CHANGES': True,
+    # Sidebar menu icons
+    'MENU_ICONS': {
+        'auth': 'icon-lock',
+        'flags': 'icon-flag',
+        'sites': 'icon-folder-open'
+    },
+    # Pagination
+    'LIST_PER_PAGE': 50,
+    }
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
