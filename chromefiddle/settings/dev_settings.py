@@ -1,3 +1,4 @@
+import sys
 try:
     from common_settings import *
     from local_settings import *
@@ -15,20 +16,16 @@ __author__ = 'Peter Schaadt'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-# SQLite3 development database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/Users/peter/Dropbox/Dev/Databases/chromefiddle_dev.db',  # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
-
-# Import secret key from local_settings
+# Import database credentials and secret key from local_settings
 # local_settings is not tracked by Git
+try:
+    DEV_DB
+except NameError:
+    # Raise error and exit
+    print "FATAL ERROR: Looks like you're missing the local_settings.py file for development!"
+    sys.exit()
+
+DATABASES = DEV_DB
 SECRET_KEY = DEV_SECRET_KEY
 
 # Development apps
@@ -54,12 +51,12 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'src'),
+    '/Users/peter/code/python/django/chromefiddle/src/',
 )
 
 TEMPLATE_DIRS = (
 # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-    '/Users/peter/code/python/django/chromefiddle/flags/templates/'
+    '/Users/peter/code/python/django/chromefiddle/flags/templates/',
 )

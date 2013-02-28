@@ -1,3 +1,4 @@
+import sys
 try:
     from common_settings import *
     from local_settings import *
@@ -17,6 +18,13 @@ TEMPLATE_DEBUG = DEBUG
 
 # Import database credentials and secret key from local_settings
 # local_settings is not tracked by Git
+try:
+    PROD_DB
+except NameError:
+    # Raise error and exit
+    print "FATAL ERROR: Looks like you're missing the local_settings.py file for production!"
+    sys.exit()
+
 DATABASES = PROD_DB
 SECRET_KEY = PROD_SECRET_KEY
 
@@ -50,5 +58,5 @@ TEMPLATE_DIRS = (
 # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-    '/home/django/web/chromefiddle/flags/templates/'
+    '/home/django/web/chromefiddle/flags/templates/',
 )
