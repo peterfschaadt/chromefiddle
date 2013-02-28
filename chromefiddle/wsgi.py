@@ -14,8 +14,15 @@ framework.
 
 """
 import os
+from chromefiddle.settings.local_settings import *
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "chromefiddle.settings")
+# Print name of environment
+print '### wsgi.py - Using local environment settings: %s' % ENV_STATE
+
+if ENV_STATE == 'PROD':
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "chromefiddle.settings.prod_settings")
+if ENV_STATE == 'DEV':
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "chromefiddle.settings.dev_settings")
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
