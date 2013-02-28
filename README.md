@@ -74,12 +74,17 @@ $ python manage.py collectstatic
 
 Run PostgreSQL shell
 ```
-$ psql -U postgres-user
+$ psql -U postgres_user
 ```
 
 Create database
 ```
-$ createdb -U new-postgres-user -E utf8 -O new-postgres-user new-postgres-db -T template0
+$ createdb -U new_postgres_user -E utf8 -O new_postgres_user new_postgres_db -T template0
+```
+
+Connect to database
+```
+$ psql -d chromefiddle_prod -U django
 ```
 
 Start PostgreSQL process (for Mac development only)
