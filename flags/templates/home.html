@@ -27,6 +27,13 @@
                 <p><a class="btn btn-primary btn-medium" href="/info">Learn more »</a></p>
             </div>
 
+            {% if os_slug == 'mac-os-x' %}
+                <h4><a href="/mac"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has {{ supported_flags.count }} flags available</h4>
+            {% else %}
+                <h4><a href="/{{ os_slug }}"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has {{ supported_flags.count }} flags available</h4>
+            {% endif %}
+{#            <h4><span class="label label-{{ os_slug }}">{{ os }}</span> has {{ supported_flags.count }} flags available</h4>#}
+
             {% for flag in supported_flags %}
                 <div class="row-fluid">
                     <div class="span12 well well-large">
