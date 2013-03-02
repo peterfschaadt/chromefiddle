@@ -2,6 +2,7 @@
 {% block title %}ChromeFiddle{% endblock %}
 
 {% block content %}
+
     <div class="row-fluid">
         <div class="span3">
             <div class="well sidebar-nav">
@@ -32,7 +33,6 @@
             {% else %}
                 <h4><a href="/{{ os_slug }}"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has {{ supported_flags.count }} flags available</h4>
             {% endif %}
-{#            <h4><span class="label label-{{ os_slug }}">{{ os }}</span> has {{ supported_flags.count }} flags available</h4>#}
 
             {% for flag in supported_flags %}
                 <div class="row-fluid">
@@ -45,4 +45,5 @@
 
         </div><!--/span-->
     </div><!--/row-->
+
 {% endblock %}
