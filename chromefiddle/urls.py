@@ -33,6 +33,7 @@ urlpatterns = patterns('',
     url(r'^chrome-os', 'flags.views.chrome_os'),
     url(r'^android', 'flags.views.android'),
     url(r'^info', 'flags.views.info'),
+    url(r'^advanced', 'flags.views.advanced'),
     url(r'^about', 'flags.views.about'),
     url(r'^privacy', 'flags.views.privacy'),
 
