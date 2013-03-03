@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from django.views.generic.simple import direct_to_template
 import httpagentparser
@@ -55,6 +55,17 @@ def list(request):
     flag_count = all_flags.count()
     logger.info('TOTAL FLAGS: %d' % flag_count)
     return render(request, 'list.html', {'all_flags': all_flags})
+
+
+def details(request, flag_id):
+    """
+    View for flag details.
+    """
+    try:
+        flag = Flag.objects.get(pk=flag_id)
+    except Flag.DoesNotExist:
+        raise Http404
+    return render(request, 'details.html', {'flag': flag})
 
 
 def mac(request):
