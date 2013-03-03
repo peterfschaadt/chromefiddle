@@ -36,6 +36,7 @@ urlpatterns = patterns('',
     url(r'^info', 'flags.views.info'),
     url(r'^advanced', 'flags.views.advanced'),
     url(r'^about', 'flags.views.about'),
+    url(r'^contact', 'flags.views.contact'),
     url(r'^privacy', 'flags.views.privacy'),
 
     # url(r'.*', redirect_to, {'url': '/home'}),

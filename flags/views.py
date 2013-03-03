@@ -1,8 +1,9 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.views.generic.simple import direct_to_template
 import httpagentparser
 from flags.models import Flag
+from forms import ContactForm
 from django.template.defaultfilters import slugify
 from django.utils.log import getLogger
 logger = getLogger('app')
@@ -137,6 +138,34 @@ def about(request):
     View for About page.
     """
     return direct_to_template(request, 'about.html', {})
+
+
+def contact(request):
+    """
+    View for Contact page with form.
+    """
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            sender = form.cleaned_data['sender']
+            cc_myself = form.cleaned_data['cc_myself']
+
+            recipients = ['peter.schaadt@gmail.com']
+            if cc_myself:
+                recipients.append(sender)
+
+            # Send email
+            from django.core.mail import send_mail
+            send_mail(subject, message, sender, recipients)
+            # Redirect after POST request
+            return HttpResponseRedirect('/thanks/')
+    else:
+        # Unbound form
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
 
 
 def privacy(request):
