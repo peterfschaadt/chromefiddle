@@ -3,13 +3,12 @@
 
 {% block content %}
 
-    <h4><strong>About this Flag</strong></h4>
+    <h3><strong>{{ flag.name }}&nbsp;</strong></h3>
 
 
     <div class="row-fluid">
         <div class="span9 well well-large">
             <p>
-                <i class="icon-flag"></i>&nbsp;<strong>{{ flag.name }}&nbsp;</strong>
                 {# Add compatible operating system labels #}
                 {% if flag.is_mac %}
                     <a href="/mac"><span class="label label-mac-os-x">Mac OS X</span></a>
@@ -24,7 +23,7 @@
                     <a href="/chrome-os"><span class="label label-chrome-os">Chrome OS</span></a>
                 {% endif %}
                 {% if flag.is_android %}
-                    <a href="/mac"><span class="label label-android">Android</span></a>
+                    <a href="/android"><span class="label label-android">Android</span></a>
                 {% endif %}
             </p>
             <p>{{ flag.description }}</p>
