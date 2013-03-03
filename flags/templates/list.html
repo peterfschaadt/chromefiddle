@@ -3,11 +3,13 @@
 
 {% block content %}
 
+    <h4 xmlns="http://www.w3.org/1999/html"><strong>{{ all_flags.count }}</strong> flags total</h4>
+
     {% for flag in all_flags %}
         <div class="row-fluid">
             <div class="span9 well well-large">
                 <p>
-                    <i class="icon-flag"></i>&nbsp;<strong>{{ flag.name }}&nbsp;</strong>
+                    <i class="icon-flag"></i>&nbsp;<a href="{{ flag.id }}">{{ flag.name }}&nbsp;</a>
                     {# Add compatible operating system labels #}
                     {% if flag.is_mac %}
                         <a href="/mac"><span class="label label-mac-os-x">Mac OS X</span></a>
@@ -22,7 +24,7 @@
                         <a href="/chrome-os"><span class="label label-chrome-os">Chrome OS</span></a>
                     {% endif %}
                     {% if flag.is_android %}
-                        <a href="/mac"><span class="label label-android">Android</span></a>
+                        <a href="/android"><span class="label label-android">Android</span></a>
                     {% endif %}
                 </p>
                 <p>{{ flag.description }}</p>

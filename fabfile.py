@@ -23,7 +23,10 @@ def setup():
     # Update/upgrade
     sudo('apt-get update')
     sudo('apt-get upgrade')
-    # Install python tools
+    # Build essential
+    sudo('apt-get install build-essential')
+    # Install Python tools
+    sudo('apt-get install python-dev')
     sudo('apt-get install -y python-setuptools')
     sudo('easy_install pip')
     sudo('pip install virtualenv')
