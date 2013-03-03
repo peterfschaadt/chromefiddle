@@ -31,6 +31,12 @@ SECRET_KEY = PROD_SECRET_KEY
 # Production apps
 # INSTALLED_APPS += (',')
 
+# Email settings for contact form
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'peter.schaadt@gmail.com'
+EMAIL_HOST_PASSWORD = PROD_EMAIL_PASSWORD
+EMAIL_USE_TLS = True
+
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
