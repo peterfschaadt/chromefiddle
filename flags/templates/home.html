@@ -37,7 +37,7 @@
             {% for flag in supported_flags %}
                 <div class="row-fluid">
                     <div class="span12 well well-large">
-                        <p><i class="icon-flag"></i>&nbsp;<strong>{{ flag.name }}</strong></p>
+                        <p><i class="icon-flag"></i>&nbsp;<a href="{{ flag.id }}">{{ flag.name }}</a><p>
                         <p>{{ flag.description }}</p>
                     </div>
                 </div><!--/row-->
