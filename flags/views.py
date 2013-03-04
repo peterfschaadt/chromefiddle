@@ -5,6 +5,7 @@ import httpagentparser
 from flags.models import Flag
 from forms import ContactForm
 from django.template.defaultfilters import slugify
+import traceback
 from django.utils.log import getLogger
 logger = getLogger('app')
 
@@ -156,16 +157,32 @@ def contact(request):
             if cc_myself:
                 recipients.append(sender)
 
-            # Send email
-            from django.core.mail import send_mail
-            send_mail(subject, message, sender, recipients)
+            message = 'ChromeFiddle Contact Form\nmessage from %s\n\n' % sender + message
+
+            # Attempt to send email, log information and traceback if error
+            try:
+                from django.core.mail import send_mail
+                send_mail(subject, message, 'peter.schaadt@gmail.com', recipients)
+                logger.info('### Sending mail!')
+            except:
+                mail_error = traceback.format_exc()
+                logger.error('Contact Form - error sending mail: %s' % mail_error +
+                             '\n%s\n%s\n%s' % (subject, message, recipients))
+
             # Redirect after POST request
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect('/thanks')
     else:
         # Unbound form
         form = ContactForm()
 
     return render(request, 'contact.html', {'form': form})
+
+
+def thanks(request):
+    """
+    View for Thanks page after contact form.
+    """
+    return render(request, 'thanks.html', {})
 
 
 def privacy(request):
