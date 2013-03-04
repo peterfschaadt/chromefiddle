@@ -86,6 +86,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'flags',
     'south',
+    'ganalytics',
     # Customized admin
     'suit',
     # Admin enabled
@@ -93,6 +94,9 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
 )
+
+# Google Analytics asynchronous tracking
+GANALYTICS_TRACKING_CODE = 'UA-39000014-1'
 
 SUIT_CONFIG = {
     # Admin page header

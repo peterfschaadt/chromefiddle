@@ -1,5 +1,6 @@
 distribute==0.6.35
 dj-database-url==0.2.1
+django-ganalytics==0.2
 django-suit==0.1.2
 Django==1.4.5
 docutils==0.10
