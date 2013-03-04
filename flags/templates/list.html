@@ -9,7 +9,7 @@
         <div class="row-fluid">
             <div class="span9 well well-large">
                 <p>
-                    <i class="icon-flag"></i>&nbsp;<a href="{{ flag.id }}">{{ flag.name }}&nbsp;</a>
+                    <i class="icon-flag"></i>&nbsp;<a href="/flags/{{ flag.id }}/">{{ flag.name }}&nbsp;</a>
                     {# Add compatible operating system labels #}
                     {% if flag.is_mac %}
                         <a href="/mac"><span class="label label-mac-os-x">Mac OS X</span></a>

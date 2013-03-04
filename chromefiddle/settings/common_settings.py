@@ -1,5 +1,4 @@
 import os
-# import dj_batabase_url
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 
@@ -87,6 +86,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'flags',
     'south',
+    'ganalytics',
     # Customized admin
     'suit',
     # Admin enabled
@@ -94,6 +94,9 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
 )
+
+# Google Analytics asynchronous tracking
+GANALYTICS_TRACKING_CODE = 'UA-39000014-1'
 
 SUIT_CONFIG = {
     # Admin page header
@@ -109,7 +112,7 @@ SUIT_CONFIG = {
     },
     # Pagination
     'LIST_PER_PAGE': 50,
-    }
+}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
