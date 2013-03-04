@@ -35,6 +35,7 @@ SECRET_KEY = PROD_SECRET_KEY
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'peter.schaadt@gmail.com'
 EMAIL_HOST_PASSWORD = PROD_EMAIL_PASSWORD
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
