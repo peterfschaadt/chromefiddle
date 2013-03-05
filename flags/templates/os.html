@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <h4><span class="label label-{{ os_slug }}">{{ os }}</span> has {{ os_flags.count }} flags available</h4>
+    <h4><span class="label label-{{ os_slug }}">{{ os }}</span> has <strong>{{ os_flags.count }}</strong> flags available</h4>
 
     {% for flag in os_flags %}
         <div class="row-fluid">

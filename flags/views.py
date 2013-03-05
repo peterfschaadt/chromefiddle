@@ -148,16 +148,17 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
+            sender_name = form.cleaned_data['sender_name']
+            sender = form.cleaned_data['sender']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
-            sender = form.cleaned_data['sender']
             cc_myself = form.cleaned_data['cc_myself']
 
             recipients = ['peter.schaadt@gmail.com']
             if cc_myself:
                 recipients.append(sender)
 
-            message = 'ChromeFiddle Contact Form\nmessage from %s\n\n' % sender + message
+            message = 'ChromeFiddle Contact Form\nmessage from: %s\nreply to: %s\n\n' % (sender_name, sender) + message
 
             # Attempt to send email, log information and traceback if error
             try:
