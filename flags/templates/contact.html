@@ -12,8 +12,14 @@
                 {# Contact Form body #}
                 {% csrf_token %}
                 {{ form.non_field_errors }}
+                {# Name #}
+                <div id="contact-wrap">
+                    {{ form.sender_name.errors }}
+                    <label for="id_sender_name">Your name:</label>
+                    {{ form.sender_name }}
+                </div>
                 {# Email Address #}
-                <div id="contact-sender">
+                <div id="contact-wrap">
                     {{ form.sender.errors }}
                     <label for="id_sender">Your email address:</label>
                     {{ form.sender }}
