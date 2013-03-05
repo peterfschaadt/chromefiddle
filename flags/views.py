@@ -158,7 +158,7 @@ def contact(request):
             if cc_myself:
                 recipients.append(sender)
 
-            message = 'ChromeFiddle Contact Form\nmessage from %s\nreply to: %s\n\n' % (sender_name, sender) + message
+            message = 'ChromeFiddle Contact Form\nmessage from: %s\nreply to: %s\n\n' % (sender_name, sender) + message
 
             # Attempt to send email, log information and traceback if error
             try:
