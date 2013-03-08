@@ -46,7 +46,9 @@ def home(request):
 
     os_slug = slugify(os)
 
-    return render(request, 'home.html', {'os': os, 'os_slug': os_slug, 'browser': user_info['browser'], 'supported_flags': supported_flags})
+    return render(request, 'home.html', {'os': os, 'os_slug': os_slug,
+                                         'browser': user_info['browser'],
+                                         'supported_flags': supported_flags})
 
 
 def list(request):
@@ -77,7 +79,8 @@ def mac(request):
     os = 'Mac OS X'
     os_slug = slugify(os)
     mac_flags = Flag.objects.filter(is_mac=True)
-    return render(request, 'os.html', {'os': os, 'os_slug': os_slug, 'os_flags': mac_flags})
+    return render(request, 'os.html', {'os': os, 'os_slug': os_slug,
+                                       'os_flags': mac_flags})
 
 
 def windows(request):
@@ -87,7 +90,8 @@ def windows(request):
     os = 'Windows'
     os_slug = slugify(os)
     windows_flags = Flag.objects.filter(is_windows=True)
-    return render(request, 'os.html', {'os': os, 'os_slug': os_slug, 'os_flags': windows_flags})
+    return render(request, 'os.html', {'os': os, 'os_slug': os_slug,
+                                       'os_flags': windows_flags})
 
 
 def linux(request):
@@ -97,7 +101,8 @@ def linux(request):
     os = 'Linux'
     os_slug = slugify(os)
     linux_flags = Flag.objects.filter(is_linux=True)
-    return render(request, 'os.html', {'os': os, 'os_slug': os_slug, 'os_flags': linux_flags})
+    return render(request, 'os.html', {'os': os, 'os_slug': os_slug,
+                                       'os_flags': linux_flags})
 
 
 def chrome_os(request):
@@ -107,7 +112,8 @@ def chrome_os(request):
     os = 'Chrome OS'
     os_slug = slugify(os)
     chrome_os_flags = Flag.objects.filter(is_chrome_os=True)
-    return render(request, 'os.html', {'os': os, 'os_slug': os_slug, 'os_flags': chrome_os_flags})
+    return render(request, 'os.html', {'os': os, 'os_slug': os_slug,
+                                       'os_flags': chrome_os_flags})
 
 
 def android(request):
@@ -117,7 +123,8 @@ def android(request):
     os = 'Android'
     os_slug = slugify(os)
     android_flags = Flag.objects.filter(is_android=True)
-    return render(request, 'os.html', {'os': os, 'os_slug': os_slug, 'os_flags': android_flags})
+    return render(request, 'os.html', {'os': os, 'os_slug': os_slug,
+                                       'os_flags': android_flags})
 
 
 def info(request):
@@ -158,7 +165,9 @@ def contact(request):
             if cc_myself:
                 recipients.append(sender)
 
-            message = 'ChromeFiddle Contact Form\nmessage from: %s\nreply to: %s\n\n' % (sender_name, sender) + message
+            message = 'ChromeFiddle Contact Form\n' \
+                      'message from: %s\n' \
+                      'reply to: %s\n\n' % (sender_name, sender) + message
 
             # Attempt to send email, log information and traceback if error
             try:
