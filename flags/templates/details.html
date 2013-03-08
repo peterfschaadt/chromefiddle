@@ -2,9 +2,11 @@
 {% block title %}Flag Details{% endblock %}
 
 {% block content %}
+    {% load comments %}
+    {% get_comment_count for flag as comment_count %}
+    {% get_comment_list for flag as comment_list %}
 
-    <h3><strong>{{ flag.name }}&nbsp;</strong></h3>
-
+    <h3><strong>{{ flag.name }}</strong></h3>
 
     <div class="row-fluid">
         <div class="span9 well well-large">
@@ -29,5 +31,22 @@
             <p>{{ flag.description }}</p>
         </div>
     </div><!--/row-->
+
+    {# Comments #}
+    <div class="row-fluid">
+        <div class="span9 well well-large">
+            <div class="comment">
+                <p>There are {{ comment_count }} comments</p>
+                <!-- {% render_comment_list for flag %} -->
+                {% for comment in comment_list %}
+                    <p>Posted by: {{ comment.user_name }} on {{ comment.submit_date }}</p>
+                    <p>Comment: {{ comment.comment }}</p>
+                {% endfor %}
+            </div>
+            <div class="comment-form">
+                {% render_comment_form for flag %}
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
