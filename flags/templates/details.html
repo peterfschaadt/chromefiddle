@@ -35,14 +35,14 @@
     {# Comments #}
     <div class="row-fluid">
         <div class="span9 well well-large">
-            <div class="comment">
-                <p>There are {{ comment_count }} comments</p>
-                <!-- {% render_comment_list for flag %} -->
-                {% for comment in comment_list %}
-                    <p>Posted by: {{ comment.user_name }} on {{ comment.submit_date }}</p>
-                    <p>Comment: {{ comment.comment }}</p>
-                {% endfor %}
-            </div>
+            <p><i class="icon-comment"></i>&nbsp;{{ comment_count }} comment{{ comment_count|pluralize }}</p><br>
+            <!-- {% render_comment_list for flag %} -->
+            {% for comment in comment_list %}
+                <div class="comment">
+                    <p><strong>{{ comment.user_name }}</strong>&nbsp;<em>{{ comment.submit_date }}</em></p>
+                    <p>{{ comment.comment }}</p>
+                </div>
+            {% endfor %}
             <div class="comment-form">
                 {% render_comment_form for flag %}
             </div>

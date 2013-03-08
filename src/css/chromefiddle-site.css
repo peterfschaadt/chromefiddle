@@ -3,3 +3,14 @@
 .contact-wrap {
     color: #000;
 }
+
+/* Comments */
+
+.comment {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+.comment-form {
+	margin-top: 30px;
+}
