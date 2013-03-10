@@ -37,7 +37,7 @@
     <div class="row-fluid">
         <div class="span9 well well-large">
             <p>
-                <i class="icon-comment"></i>&nbsp;{{ comment_count }} comment{{ comment_count|pluralize }}
+                <i class="icon-comment"></i>&nbsp;COMMENT{{ comment_count|pluralize|upper }} ({{ comment_count }})
             </p>
             <br>
             {% for comment in comment_list %}
