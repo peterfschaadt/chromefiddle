@@ -100,7 +100,8 @@ SUIT_CONFIG = {
     'MENU_ICONS': {
         'auth': 'icon-lock',
         'flags': 'icon-flag',
-        'sites': 'icon-folder-open'
+        'comments': 'icon-comment',
+        'sites': 'icon-folder-open',
     },
     # Pagination
     'LIST_PER_PAGE': 50,
