@@ -4,9 +4,12 @@
 {% block title %}Preview Comment{% endblock %}
 
 {% block content %}
+
     {% load comments %}
+
     <form action="{% comment_form_target %}" method="post">{% csrf_token %}
         {% if next %}<div><input type="hidden" name="next" value="{{ next }}" /></div>{% endif %}
+
         {% if form.errors %}
             <h3>{% blocktrans count counter=form.errors|length %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</h3>
         {% else %}
@@ -22,6 +25,7 @@
             </p>
             <br>
         {% endif %}
+
         {% for field in form %}
             {% if field.is_hidden %}
                 <div>{{ field }}</div>
@@ -34,9 +38,11 @@
                 </p>
             {% endif %}
         {% endfor %}
+
         <p class="submit">
             <input type="submit" name="submit" class="submit-post" value="{% trans "Post" %}" />
             <input type="submit" name="preview" class="submit-preview" value="{% trans "Preview" %}" />
         </p>
     </form>
-{% endblock %}
+
+{% endblock content %}
