@@ -25,9 +25,9 @@
             </div>
 
             {% if os_slug == 'mac-os-x' %}
-                <h4><a href="/mac"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has {{ supported_flags.count }} flags available</h4>
+                <h4><a href="/mac"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has <strong>{{ supported_flags.count }}</strong> flags available</h4>
             {% else %}
-                <h4><a href="/{{ os_slug }}"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has {{ supported_flags.count }} flags available</h4>
+                <h4><a href="/{{ os_slug }}"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has <strong>{{ supported_flags.count }}</strong> flags available</h4>
             {% endif %}
 
             {% for flag in supported_flags %}
