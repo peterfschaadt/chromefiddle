@@ -3,7 +3,23 @@
 
 {% block content %}
 
-    <h4><span class="label label-{{ os_slug }}">{{ os }}</span> has <strong>{{ os_flags.count }}</strong> flags available</h4>
+    <div class="row-fluid">
+        <div class="span9">
+            <div class="span8">
+                <h4>
+                    <span class="label label-{{ os_slug }}">{{ os }}</span> has <strong>{{ os_flags.count }}</strong> flags available
+                </h4>
+            </div>
+            <div class="span4">
+                <div class="btn-toolbar text-right">
+                    <div class="btn-group">
+                        <a class="btn" href="#"><i class="icon-align-left"></i></a>
+                        <a class="btn" href="#"><i class="icon-align-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {% for flag in os_flags %}
         <div class="row-fluid">
@@ -14,4 +30,4 @@
         </div><!--/row-->
     {% endfor %}
 
-{% endblock %}
+{% endblock content %}
