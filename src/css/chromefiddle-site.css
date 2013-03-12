@@ -1,5 +1,49 @@
+/*** ChromeFiddle CSS Styles ***/
+/* site owner: Peter Schaadt */
+
+/* General Styles */
+
+/* Nav Bar */
+
+.nav-collapse ul.nav li.active {
+	background-color: #262626;
+}
+
+.nav-collapse ul.nav li:hover {
+	background-color: #4a4a4a;
+}
+
 /* Contact Form */
 
 .contact-wrap {
     color: #000;
+}
+
+/* Comments */
+
+.comment {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+.comment-form {
+	margin-top: 30px;
+}
+
+/* Custom Icons */
+
+.icon-a-z {
+	background-image: "../img/";
+}
+
+.icon-z-a {
+	background-image: "../img/";
+}
+
+.icon-1-9 {
+	background-image: "../img/";
+}
+
+.icon-9-1 {
+	background-image: "../img/";
 }

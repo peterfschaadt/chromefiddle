@@ -5,18 +5,18 @@ class Flag(models.Model):
     """
     Chrome experimental flag.
     """
-    name = models.CharField(max_length=100)
+    name =        models.CharField(max_length=100)
     description = models.CharField(max_length=300)
 
     # Operating system compatibility
-    is_mac = models.BooleanField()
-    is_windows = models.BooleanField()
-    is_linux = models.BooleanField()
+    is_mac =       models.BooleanField()
+    is_windows =   models.BooleanField()
+    is_linux =     models.BooleanField()
     is_chrome_os = models.BooleanField()
-    is_android = models.BooleanField()
+    is_android =   models.BooleanField()
 
     # Timestamps
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_added =    models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 
     # Print name of flag

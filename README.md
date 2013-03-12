@@ -23,7 +23,7 @@ $ pip-dump
 
 Run development web server
 ```
-$ python manage.py runserver
+$ python manage.py runserver <IP>:<PORT>
 ```
 
 Run interactive Django shell
@@ -46,10 +46,19 @@ Apply schema migration
 $ python manage.py migrate flags
 ```
 
+Dump all Flag objects to JSON file
+```
+$ python manage.py dumpdata flags  > fixtures/flags_list.json
+```
+
 Collect static files to static directory
 ```
 $ python manage.py collectstatic
 ```
+
+## Provisioning vanilla Ubuntu server
+
+Use the scripts in my [ubuntu-setup](https://github.com/peterfschaadt/ubuntu-setup) repository to prepare server for [Chef](http://www.opscode.com/chef) configuration and dependency management.
 
 ## Fabric
 

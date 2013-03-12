@@ -3,6 +3,7 @@ import os
 import sys
 from chromefiddle.settings.local_settings import *
 
+
 if __name__ == "__main__":
 
     # Print name of environment

@@ -74,6 +74,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.comments',
     'gunicorn',
     'flags',
     'south',
@@ -99,7 +100,8 @@ SUIT_CONFIG = {
     'MENU_ICONS': {
         'auth': 'icon-lock',
         'flags': 'icon-flag',
-        'sites': 'icon-folder-open'
+        'comments': 'icon-comment',
+        'sites': 'icon-folder-open',
     },
     # Pagination
     'LIST_PER_PAGE': 50,

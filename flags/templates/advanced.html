@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Advanced Settings?{% endblock %}
+{% block title %}Advanced Settings{% endblock %}
 
 {% block content %}
 
@@ -51,4 +51,19 @@
         </div>
     </div><!--/row-->
 
-{% endblock %}
+    <div class="row-fluid">
+        <div class="span9 well well-large">
+            <h4><strong>List of Chrome URLs used only for debugging (be careful!)</strong></h4>
+            <ul>
+                <li>chrome://crash</li>
+                <li>chrome://kill</li>
+                <li>chrome://hang</li>
+                <li>chrome://shorthang</li>
+                <li>chrome://gpuclean</li>
+                <li>chrome://gpucrash</li>
+                <li>chrome://gpuhang</li>
+            </ul>
+        </div>
+    </div><!--/row-->
+
+{% endblock content %}

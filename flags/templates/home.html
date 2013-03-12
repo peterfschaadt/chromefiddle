@@ -1,6 +1,20 @@
 {% extends "base.html" %}
 {% block title %}ChromeFiddle{% endblock %}
 
+{% block navlinks %}
+
+    <div class="nav-collapse">
+        <ul class="nav">
+            <li class="active"><a href="/"><i class="icon-home icon-white"></i>&nbsp;Home</a></li>
+            <li><a href="/list"><i class="icon-list icon-white"></i>&nbsp;List</a></li>
+            <li><a href="/info"><i class="icon-info-sign icon-white"></i>&nbsp;Info</a></li>
+            <li><a href="/about"><i class="icon-briefcase icon-white"></i>&nbsp;About</a></li>
+            <li><a href="/contact"><i class="icon-envelope icon-white"></i>&nbsp;Contact</a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
+    
+{% endblock navlinks %}
+
 {% block content %}
 
     <div class="row-fluid">
@@ -25,9 +39,9 @@
             </div>
 
             {% if os_slug == 'mac-os-x' %}
-                <h4><a href="/mac"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has {{ supported_flags.count }} flags available</h4>
+                <h4><a href="/mac"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has <strong>{{ supported_flags.count }}</strong> flags available</h4>
             {% else %}
-                <h4><a href="/{{ os_slug }}"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has {{ supported_flags.count }} flags available</h4>
+                <h4><a href="/{{ os_slug }}"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has <strong>{{ supported_flags.count }}</strong> flags available</h4>
             {% endif %}
 
             {% for flag in supported_flags %}
@@ -42,4 +56,4 @@
         </div><!--/span-->
     </div><!--/row-->
 
-{% endblock %}
+{% endblock content %}
