@@ -4,9 +4,14 @@ from contextlib import contextmanager
 __author__ = 'Peter Schaadt'
 __repository__ = 'https://github.com/peterfschaadt/chromefiddle.git'
 
-# User/host
-env.user = 'django'
-env.host = ['198.144.185.175']
+# Running a command
+# $ fab -R <ROLE> <COMMAND>
+
+# User/host for environments
+env.roledefs = {
+    'test': ['localhost'],
+    'prod': ['django@198.144.185.175']
+}
 
 # Paths
 env.root_dir = '/web'
