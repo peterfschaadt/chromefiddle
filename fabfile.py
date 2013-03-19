@@ -1,28 +1,42 @@
-from fabric.api import cd, env, prefix, run, sudo, local, settings
+from fabric.api import cd, env, prefix, run, sudo, put, local, settings
 from contextlib import contextmanager
 
 __author__ = 'Peter Schaadt'
 __repository__ = 'https://github.com/peterfschaadt/chromefiddle.git'
 
-# User/host
-env.user = 'django'
-env.host = ['198.144.185.175']
+# List all commands
+# $ fab --list
+
+# Running a command
+# $ fab -R <ROLE> <COMMAND>
+
+# User/host roles for environments
+env.roledefs = {
+    'test': ['localhost'],
+    'prod': ['django@198.144.185.175']
+}
 
 # Paths
-env.root_dir = '/web'
-env.virtualenv = '%s/chromefiddle/env' % env.root_dir
+env.root_dir = '/home/django/web'
+env.virtualenv = '%s/chromefiddle/venv' % env.root_dir
 env.activate = 'source %s/bin/activate' % env.virtualenv
 env.code_dir = '%s/chromefiddle' % env.root_dir
-env.static_dir = '%s/src' % env.root_dir
+env.static_dir = '%s/chromefiddle/src' % env.root_dir
+
+
+def apt_upgrade():
+    """
+    Perform apt-get update/upgrade
+    """
+    sudo('apt-get update')
+    sudo('apt-get upgrade')
 
 
 def setup():
     """
     Initial configuration
     """
-    # Update/upgrade
-    sudo('apt-get update')
-    sudo('apt-get upgrade')
+    apt_upgrade()
     # Build essential
     sudo('apt-get install build-essential')
     # Install Python tools
@@ -30,12 +44,8 @@ def setup():
     sudo('apt-get install -y python-setuptools')
     sudo('easy_install pip')
     sudo('pip install virtualenv')
-    # Install Git
-    sudo('apt-get install git-core')
     # Install Nginx
     sudo('apt-get install nginx')
-    # Install Curl
-    sudo('apt-get install libcurl3')
     # Reset permissions
     reset_permissions()
 
@@ -113,9 +123,12 @@ def restart_nginx():
 
 
 def update_project():
+    """
+    Git pull, install pip requirements, perform migration, and collect static.
+    """
     with cd(env.code_dir):
         with _virtualenv():
-            run('git pull')
+            run('git pull origin master')
             install_requirements()
             perform_migration()
             collect_static()
@@ -131,11 +144,19 @@ def deploy():
 
 def install_requirements():
     """
-    Install pip dependencies from freeze files
+    Install pip dependencies from freeze file
     """
     with cd(env.code_dir):
         with _virtualenv():
             sudo('pip install -r requirements.txt', pty=True)
+
+
+def add_local_settings():
+    """
+    Copy secret local_settings from Dropbox to code directory
+    """
+    put('/Users/peter/Dropbox/Projects/ChromeFiddle/Local\ Settings/prod/local_settings.py', 
+        '/home/django/web/chromefiddle/chromefiddle/settings')
 
 
 def perform_migration():
