@@ -18,10 +18,10 @@ env.roledefs = {
 
 # Paths
 env.root_dir = '/home/django/web'
-env.virtualenv = '%s/chromefiddle/venv' % env.root_dir
-env.activate = 'source %s/bin/activate' % env.virtualenv
 env.code_dir = '%s/chromefiddle' % env.root_dir
 env.static_dir = '%s/chromefiddle/src' % env.root_dir
+
+ENV_NAME = 'chromenv'
 
 
 def apt_upgrade():
@@ -43,7 +43,7 @@ def setup():
     sudo('apt-get install python-dev')
     sudo('apt-get install -y python-setuptools')
     sudo('easy_install pip')
-    sudo('pip install virtualenv')
+    sudo('pip install virtualenv virtualenvwrapper')
     # Install Nginx
     sudo('apt-get install nginx')
     # Reset permissions
@@ -55,16 +55,14 @@ def _virtualenv():
     """
     Activate virtualenv
     """
-    with prefix(env.activate):
-        yield
+    run('workon %s' % ENV_NAME)
 
 
 def create_virtualenv():
     """
     Create virtualenv
     """
-    with cd(env.root_dir):
-        sudo('virtualenv env --no-site-packages')
+    run('mkvirtualenv  --no-site-packages %s' % ENV_NAME)
 
 
 def remove_pyc_files():
