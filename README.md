@@ -83,12 +83,12 @@ Use the scripts in my [ubuntu-setup](https://github.com/peterfschaadt/ubuntu-set
 
 Run PostgreSQL shell
 ```
-$ psql -U postgres_user
+$ psql -U <POSTGRES_USER>
 ```
 
 Create database
 ```
-$ createdb -U new_postgres_user -E utf8 -O new_postgres_user new_postgres_db -T template0
+$ createdb -U <POSTGRES_USER> -E utf8 -O <POSTGRES_USER> <POSTGRES_DB_NAME> -T template0
 ```
 
 Connect to database
