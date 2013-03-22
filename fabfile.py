@@ -88,8 +88,6 @@ def start_gunicorn():
     """
     with cd(env.code_dir):
             with _virtualenv():
-                # sudo('gunicorn_django -c gunicorn.py '
-                #      '--daemon prod_settings.py & sleep 3')
                 sudo('python manage.py run_gunicorn -w 4 -b 127.0.0.1:8000 --daemon')
 
 
