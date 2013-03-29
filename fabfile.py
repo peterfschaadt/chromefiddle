@@ -40,8 +40,7 @@ def setup():
     # Build essential
     sudo('apt-get install build-essential')
     # Install Python tools
-    sudo('apt-get install python-dev')
-    sudo('apt-get install -y python-setuptools')
+    sudo('apt-get install python python-dev python-setuptools')
     sudo('easy_install pip')
     sudo('pip install virtualenv virtualenvwrapper')
     # Install Nginx
@@ -196,8 +195,8 @@ def reset_permissions():
     """
     Reset user permissions
     """
-    sudo('chown %s -R %s' % (env.user, env.root_dir))
-    sudo('chgrp %s -R %s' % (env.user, env.root_dir))
+    sudo('chown -R %s %s' % (env.user, env.root_dir))
+    sudo('chgrp -R %s %s' % (env.user, env.root_dir))
 
 
 def find_todo():
