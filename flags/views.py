@@ -16,14 +16,22 @@ def home(request):
     """
     # Pull user agent string from web request
     user_agent = request.META['HTTP_USER_AGENT']
-    logger.info('USER AGENT STRING: %s' % user_agent)
     # Parse user agent string for OS, browser, and version
     user_info = httpagentparser.detect(user_agent)
-    logger.info('USER INFO: %s' % user_info)
-    # test_user_info = {'flavor': {'version': 'X 10.8.2', 'name': 'MacOS'}, 'os': {'name': 'Macintosh'}, 'browser': {'version': '24.0.1312.57', 'name': 'Chrome'}}
+    
+    # logger.info('USER AGENT STRING: %s' % user_agent)
+    # logger.info('USER INFO: %s' % user_info)
+
+    # test_user_mac = {'flavor': {'version': 'X 10.8.2', 'name': 'MacOS'}, 'os': {'name': 'Macintosh'}, 'browser': {'version': '24.0.1312.57', 'name': 'Chrome'}}
+    # test_user_android = {'dist': {'version': '4.0.4', 'name': 'Android'}, 'os': {'name': 'Linux'}, 'browser': {'version': '26.0.1410.40', 'name': 'Chrome'}}
+
+    # Workaround to prevent Android device from being identified as Linux device
+    if 'dist' in user_info:
+        operating_system = user_info['dist']['name'].lower()
+    else:
+        operating_system = user_info['os']['name'].lower()
 
     # Check for operating system type
-    operating_system = user_info['os']['name'].lower()
     if operating_system == 'macintosh':
         os = 'Mac OS X'
         supported_flags = Flag.objects.filter(is_mac=True)
@@ -51,14 +59,14 @@ def home(request):
                                          'supported_flags': supported_flags})
 
 
-def list(request):
+def flags(request):
     """
     View for page listing all flags.
     """
     all_flags = Flag.objects.all()
-    flag_count = all_flags.count()
-    logger.info('TOTAL FLAGS: %d' % flag_count)
-    return render(request, 'list.html', {'all_flags': all_flags})
+    # flag_count = all_flags.count()
+    # logger.info('TOTAL FLAGS: %d' % flag_count)
+    return render(request, 'flags.html', {'all_flags': all_flags})
 
 
 def details(request, flag_id):
@@ -173,11 +181,11 @@ def contact(request):
             try:
                 from django.core.mail import send_mail
                 send_mail(subject, message, 'peter.schaadt@gmail.com', recipients)
-                logger.info('### Sending mail!')
+                # logger.info('### Sending mail!')
             except:
                 mail_error = traceback.format_exc()
-                logger.error('Contact Form - error sending mail: %s' % mail_error +
-                             '\n%s\n%s\n%s' % (subject, message, recipients))
+                # logger.error('Contact Form - error sending mail: %s' % mail_error +
+                #             '\n%s\n%s\n%s' % (subject, message, recipients))
 
             # Redirect after POST request
             return HttpResponseRedirect('/thanks')
