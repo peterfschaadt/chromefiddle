@@ -88,7 +88,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'django_dumpdb',
 )
 
 # Google Analytics asynchronous tracking
