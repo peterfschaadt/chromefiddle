@@ -3,6 +3,10 @@
 
 /* General Styles */
 
+.hero-unit h1 {
+	padding-bottom: 15px;
+}
+
 /* Nav Bar */
 
 .nav-collapse ul.nav li.active {
@@ -30,6 +34,28 @@
 	margin-top: 30px;
 }
 
+/* Operating System Icons */
+
+.icon-os-mac {
+	background-image: "../img/";
+}
+
+.icon-os-windows {
+	background-image: "../img/";
+}
+
+.icon-os-linux {
+	background-image: "../img/";
+}
+
+.icon-os-chrome-os {
+	background-image: "../img/";
+}
+
+.icon-os-android {
+	background-image: "../img/";
+}
+
 /* Custom Icons */
 
 .icon-a-z {
@@ -46,4 +72,10 @@
 
 .icon-9-1 {
 	background-image: "../img/";
+}
+
+/* Utility Styles */
+
+.bump-down {
+	margin-top: 10px;
 }
