@@ -12,6 +12,9 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+# Receive email notification for 404 errors
+SEND_BROKEN_LINK_EMAILS = True
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 TIME_ZONE = 'America/Chicago'
