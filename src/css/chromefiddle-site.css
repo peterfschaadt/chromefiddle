@@ -76,6 +76,12 @@
 
 /* Utility Styles */
 
+.center {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .bump-down {
 	margin-top: 10px;
 }
