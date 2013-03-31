@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
-from django.views.generic.simple import direct_to_template
+from django.views.generic import TemplateView
 import httpagentparser
 from flags.models import Flag
 from forms import ContactForm
@@ -135,27 +135,6 @@ def android(request):
                                        'os_flags': android_flags})
 
 
-def info(request):
-    """
-    View for Info page.
-    """
-    return direct_to_template(request, 'info.html', {})
-
-
-def advanced(request):
-    """
-    View for Advanced Info page.
-    """
-    return direct_to_template(request, 'advanced.html', {})
-
-
-def about(request):
-    """
-    View for About page.
-    """
-    return direct_to_template(request, 'about.html', {})
-
-
 def contact(request):
     """
     View for Contact page with form.
@@ -201,10 +180,3 @@ def thanks(request):
     View for Thanks page after contact form.
     """
     return render(request, 'thanks.html', {})
-
-
-def privacy(request):
-    """
-    View for Privacy page.
-    """
-    return direct_to_template(request, 'privacy.html', {})

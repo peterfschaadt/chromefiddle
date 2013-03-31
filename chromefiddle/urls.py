@@ -1,6 +1,5 @@
 from django.conf.urls import patterns, include, url
-from django.views.generic.simple import redirect_to
-from django.views.generic.simple import direct_to_template
+from django.views.generic import TemplateView
 from flags import views
 import settings
 
@@ -20,8 +19,9 @@ urlpatterns = patterns('',
     url(r'^admin-only/', include(admin.site.urls)),
 
     # Include robots.txt for search engine crawlers
-    url(r'^robots\.txt$', direct_to_template, {'template':
-        'robots.txt', 'mimetype': 'text/plain'}),
+    url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
+    # Include humans.txt with site information
+    url(r'^humans\.txt$', TemplateView.as_view(template_name='humans.txt', content_type='text/plain')),
 
     # App-specific URLs
     url(r'^$', 'flags.views.home'),
@@ -34,12 +34,10 @@ urlpatterns = patterns('',
     url(r'^linux', 'flags.views.linux'),
     url(r'^chrome-os', 'flags.views.chrome_os'),
     url(r'^android', 'flags.views.android'),
-    url(r'^info', 'flags.views.info'),
-    url(r'^advanced', 'flags.views.advanced'),
-    url(r'^about', 'flags.views.about'),
+    url(r'^info', TemplateView.as_view(template_name='info.html')),
+    url(r'^advanced', TemplateView.as_view(template_name='advanced.html')),
+    url(r'^about', TemplateView.as_view(template_name='about.html')),
     url(r'^contact', 'flags.views.contact'),
     url(r'^thanks', 'flags.views.thanks'),
-    url(r'^privacy', 'flags.views.privacy'),
-
-    # url(r'.*', redirect_to, {'url': '/home'}),
+    url(r'^privacy', TemplateView.as_view(template_name='privacy.html')),
 )
