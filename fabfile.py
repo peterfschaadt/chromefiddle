@@ -86,8 +86,18 @@ def start_gunicorn():
     Start Gunicorn WSGI server
     """
     with cd(env.code_dir):
-            with _virtualenv():
-                sudo('python manage.py run_gunicorn -w 4 -b 127.0.0.1:8000 --daemon')
+        with _virtualenv():
+            sudo('python manage.py run_gunicorn -w 4 -b 127.0.0.1:8000 --daemon')
+
+
+def start_gunicorn_newrelic():
+    """
+    Start Gunicorn WSGI server with New Relic agent monitoring
+    """
+    with cd(env.code_dir):
+        with _virtualenv():
+            sudo('NEW_RELIC_CONFIG_FILE=newrelic.ini newrelic-admin run-program ' +
+                'python manage.py run_gunicorn -w 4 -b 127.0.0.1:8000 --daemon')
 
 
 def restart_gunicorn():
