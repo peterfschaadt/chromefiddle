@@ -4,5 +4,6 @@
 venv/
 .DS_Store
 local_settings.py
+newrelic.ini
 static/
 .idea/*
