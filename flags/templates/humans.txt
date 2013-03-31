@@ -1,0 +1,42 @@
+/* ChromeFiddle Site Info */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Admin: Peter Schaadt
+  Site: http://peterschaadt.com
+  Twitter: @PeterSchaadt
+  Location: Sunnyvale, CA
+
+/* THANKS */
+  Stack Overflow
+
+/* SITE */
+  Language: English-U.S.
+  Doctype: HTML5
+  Standards: HTML5, CSS3
+  Components: Python, Django, Javascript, jQuery, SQLite, PostgreSQL, Nginx, Gunicorn, Memcached
+  Software: Sublime Text, PyCharm, iTerm, Git, FileZilla, Induction
+  Repository: https://github.com/peterfschaadt/chromefiddle
+
+
+
+
+               ,
+         (`.  : \               __..----..__
+          `.`.| |:          _,-':::''' '  `:`-._
+            `.:\||       _,':::::'         `::::`-.
+              \\`|    _,':::::::'     `:.     `':::`.
+               ;` `-''  `::::::.                  `::\
+            ,-'      .::'  `:::::.         `::..    `:\
+          ,' /_) -.            `::.           `:.     |
+        ,'.:     `    `:.        `:.     .::.          \
+   __,-'   ___,..-''-.  `:.        `.   /::::.         |
+  |):'_,--'           `.    `::..       |::::::.      ::\
+   `-'                 |`--.:_::::|_____\::::::::.__  ::|
+                       |   _/|::::|      \::::::|::/\  :|
+                       /:./  |:::/        \__:::):/  \  :\
+                     ,'::'  /:::|        ,'::::/_/    `. ``-.__
+                    ''''   (//|/\      ,';':,-'         `-.__  `'--..__
+                                                             `''---::::'
+
