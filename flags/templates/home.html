@@ -34,7 +34,14 @@
             <div class="hero-unit">
                 <h1>Experiment with Google Chrome</h1>
                 <p>Navigate to <a href="chrome://flags" target="_blank">chrome://flags</a> in your Google Chrome URL bar to view cutting-edge features that haven't made it into the latest release yet.</p>
-                <p>We have detected that you are running <strong>{{ browser.name }} {{ browser.version }}</strong> on <strong>{{ os }}</strong>.</p>
+                <p>
+                    {% if browser.name == 'Chrome' %}
+                        <i class="icon-thumbs-up"></i>&nbsp;
+                    {% else %}
+                        <i class="icon-warning-sign"></i>&nbsp;
+                    {% endif %}
+                    It looks like you are running <strong>{{ browser.name }} {{ browser.version }}</strong> on <strong>{{ os }}</strong>.
+                </p>
                 <p><a class="btn btn-primary btn-medium bump-down" href="/info">Learn more »</a></p>
             </div>
 
