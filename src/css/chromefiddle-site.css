@@ -1,6 +1,22 @@
 /*** ChromeFiddle CSS Styles ***/
 /* site owner: Peter Schaadt */
 
+/* Background Image */
+
+/*@media 
+only screen and (-webkit-min-device-pixel-ratio: 2), 
+only screen and (min-resolution: 192dpi) { 
+	body {
+	  background: url('../img/kindajean_@2X.png') repeat;
+	  background-size: 100%;
+	}
+}*/
+
+body {
+	background-image: url(/img/kindajean.png) repeat;
+	background-size: 100%;
+}
+
 /* General Styles */
 
 .hero-unit h1 {
