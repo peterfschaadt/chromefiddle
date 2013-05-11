@@ -34,6 +34,10 @@
 	margin-top: 30px;
 }
 
+input.submit-post, input.submit-preview {
+	color: #858585;
+}
+
 /* Operating System Icons */
 
 .icon-os-mac {
