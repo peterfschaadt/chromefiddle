@@ -1,9 +1,11 @@
 /*** ChromeFiddle CSS Styles ***/
 /* site owner: Peter Schaadt */
 
+
 /* Background Image */
 
-/*@media 
+/* Background Image for Retina Displays */
+/*@media
 only screen and (-webkit-min-device-pixel-ratio: 2), 
 only screen and (min-resolution: 192dpi) { 
 	body {
@@ -13,14 +15,29 @@ only screen and (min-resolution: 192dpi) {
 }*/
 
 body {
-	background-image: url(/img/kindajean.png) repeat;
-	background-size: 100%;
+	background-image: url('/static/img/kindajean.png');
+	background-repeat: repeat;
 }
 
 /* General Styles */
 
+.content-wrap {
+	width: 1140px;
+	margin: 0 auto 0 auto;
+}
+
 .hero-unit h1 {
+	letter-spacing: 1px;
 	padding-bottom: 15px;
+}
+
+.label-plus {
+	font-size: 16px;
+	padding: 9px;
+}
+
+h4.h4-plus {
+	font-size: 18px;
 }
 
 /* Nav Bar */
@@ -104,4 +121,8 @@ input.submit-post, input.submit-preview {
 
 .bump-down {
 	margin-top: 10px;
+}
+
+.pad-top-10 {
+	padding-top: 10px;
 }
