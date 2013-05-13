@@ -18,6 +18,7 @@
 {% block content %}
 
     <div class="row-fluid">
+
         <div class="span3 visible-desktop">
             <div class="well sidebar-nav">
                 <ul class="nav nav-list">
@@ -30,11 +31,12 @@
                 </ul>
             </div><!--/.well -->
         </div><!--/span-->
+
         <div class="span9">
             <div class="hero-unit">
                 <h1>Experiment with Google Chrome</h1>
                 <p>Navigate to <a href="chrome://flags" target="_blank">chrome://flags</a> in your Google Chrome URL bar to view cutting-edge features that haven't made it into the latest release yet.</p>
-                <p>
+                <p class="pad-top-10">
                     {% if browser.name == 'Chrome' %}
                         <i class="icon-thumbs-up"></i>&nbsp;
                     {% else %}
@@ -46,9 +48,9 @@
             </div>
 
             {% if os_slug == 'mac-os-x' %}
-                <h4><a href="/mac"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has <strong>{{ supported_flags.count }}</strong> flags available</h4>
+                <h4 class="h4-plus"><a href="/mac"><span class="label label-plus label-{{ os_slug }}">{{ os }}</span></a> has <strong>{{ supported_flags.count }}</strong> flags available</h4>
             {% else %}
-                <h4><a href="/{{ os_slug }}"><span class="label label-{{ os_slug }}">{{ os }}</span></a> has <strong>{{ supported_flags.count }}</strong> flags available</h4>
+                <h4 class="h4-plus"><a href="/{{ os_slug }}"><span class="label label-plus label-{{ os_slug }}">{{ os }}</span></a> has <strong>{{ supported_flags.count }}</strong> flags available</h4>
             {% endif %}
 
             {% for flag in supported_flags %}
@@ -61,6 +63,7 @@
             {% endfor %}
 
         </div><!--/span-->
+
     </div><!--/row-->
 
 {% endblock content %}

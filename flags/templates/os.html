@@ -3,23 +3,23 @@
 
 {% block content %}
 
+<div class="content-wrap">
     <div class="row-fluid">
-        <div class="span9">
-            <div class="span9">
-                <h4>
-                    <span class="label label-{{ os_slug }}">{{ os }}</span> has <strong>{{ os_flags.count }}</strong> flags available
-                </h4>
-            </div>
+        <div class="span10">
+            <h4>
+                <span class="label label-{{ os_slug }}">{{ os }}</span> has <strong>{{ os_flags.count }}</strong> flags available
+            </h4>
         </div>
     </div>
 
     {% for flag in os_flags %}
         <div class="row-fluid">
-            <div class="span9 well well-large">
+            <div class="span10 well well-large">
                 <p><i class="icon-flag"></i>&nbsp;<a href="/flags/{{ flag.id }}/">{{ flag.name }}</a></p>
                 <p>{{ flag.description }}</p>
             </div>
         </div><!--/row-->
     {% endfor %}
+</div>
 
 {% endblock content %}
